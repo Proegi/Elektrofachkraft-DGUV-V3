@@ -1,3 +1,4 @@
+<!-- Loesung: Elektrofachkraft_DGUV_V3_Loesung.md -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -226,17 +227,20 @@ select.luecke:invalid{color:var(--ink-3)}
   <label for="fehlerquote">Was ist die Fehlerquote?</label>
   <textarea id="fehlerquote" class="gross-feld"></textarea>
 
-  <div class="info">Verständnischeck: Bei einer Prüfung sind 4 Betriebsmittel durchgefallen. Wie viele Betriebsmittel müssen mindestens in Ordnung gewesen sein, damit die Fehlerquote noch höchstens 2 Prozent beträgt und die Prüffrist verlängert werden kann?</div>
-  <label for="fehlerquote-a">Mindestanzahl an Betriebsmitteln, die in Ordnung sein mussten</label>
-  <input type="number" id="fehlerquote-a" class="zahl" aria-label="Mindestanzahl an Betriebsmitteln, die in Ordnung sein mussten">
-
-  <div class="info">Umgekehrt: Ihr habt 100 Betriebsmittel geprüft. Wie viele davon dürfen höchstens durchgefallen sein, damit die Fehlerquote noch höchstens 2 Prozent beträgt?</div>
-  <label for="fehlerquote-b">Maximale Anzahl durchgefallener Betriebsmittel bei 100 geprüften Betriebsmitteln</label>
-  <input type="number" id="fehlerquote-b" class="zahl" aria-label="Maximale Anzahl durchgefallener Betriebsmittel bei 100 geprüften Betriebsmitteln">
-
+  <div class="info">Verständnischeck: Ihr habt 100 Betriebsmittel geprüft. Wie viele davon dürfen höchstens durchgefallen sein, damit die Fehlerquote noch höchstens 2 Prozent beträgt?</div>
+  <label for="fehlerquote-100">Maximale Anzahl durchgefallener Betriebsmittel bei 100 geprüften Betriebsmitteln</label>
+  <input type="number" id="fehlerquote-100" class="zahl" aria-label="Maximale Anzahl durchgefallener Betriebsmittel bei 100 geprüften Betriebsmitteln">
   <div class="pruefen noprint">
-    <button onclick="pruefeFehlerquote()">Verständnischeck prüfen</button>
-    <span class="ergebnis" id="ergFehlerquote" aria-live="polite"></span>
+    <button onclick="pruefeFehlerquote100()">Prüfen</button>
+    <span class="ergebnis" id="ergFehlerquote100" aria-live="polite"></span>
+  </div>
+
+  <div class="info">Umgekehrt: Bei einer Prüfung sind 4 Betriebsmittel durchgefallen. Wie viele Betriebsmittel müssen mindestens in Ordnung gewesen sein, damit die Fehlerquote noch höchstens 2 Prozent beträgt und die Prüffrist verlängert werden kann?</div>
+  <label for="fehlerquote-4">Mindestanzahl an Betriebsmitteln, die in Ordnung sein mussten</label>
+  <input type="number" id="fehlerquote-4" class="zahl" aria-label="Mindestanzahl an Betriebsmitteln, die in Ordnung sein mussten">
+  <div class="pruefen noprint">
+    <button onclick="pruefeFehlerquote4()">Prüfen</button>
+    <span class="ergebnis" id="ergFehlerquote4" aria-live="polite"></span>
   </div>
 </section>
 
@@ -273,18 +277,37 @@ function pruefeLueckentext(){
   erg.textContent = richtig + ' von ' + auswahl.length + ' richtig.';
   erg.className = 'ergebnis ' + (richtig === auswahl.length ? 'ok' : 'bad');
 }
-function pruefeFehlerquote(){
-  const erg = document.getElementById('ergFehlerquote');
-  const aFeld = document.getElementById('fehlerquote-a');
-  const bFeld = document.getElementById('fehlerquote-b');
-  if(aFeld.value === '' || bFeld.value === ''){
-    erg.textContent = 'Bitte beide Felder ausfüllen.';
+function pruefeFehlerquote100(){
+  const feld = document.getElementById('fehlerquote-100');
+  const erg = document.getElementById('ergFehlerquote100');
+  if(feld.value === ''){
+    erg.textContent = 'Bitte das Feld ausfüllen.';
     erg.className = 'ergebnis bad';
     return;
   }
-  const richtig = Number(aFeld.value) === 196 && Number(bFeld.value) === 2;
-  erg.textContent = richtig ? 'Beide Werte richtig.' : 'Noch nicht richtig, prüfe deine Rechnung.';
-  erg.className = 'ergebnis ' + (richtig ? 'ok' : 'bad');
+  const wert = Number(feld.value);
+  erg.textContent = wert === 2 ? 'Richtig.' : 'Noch nicht richtig, prüfe deine Rechnung.';
+  erg.className = 'ergebnis ' + (wert === 2 ? 'ok' : 'bad');
+}
+function pruefeFehlerquote4(){
+  const feld = document.getElementById('fehlerquote-4');
+  const erg = document.getElementById('ergFehlerquote4');
+  if(feld.value === ''){
+    erg.textContent = 'Bitte das Feld ausfüllen.';
+    erg.className = 'ergebnis bad';
+    return;
+  }
+  const wert = Number(feld.value);
+  if(wert === 196){
+    erg.textContent = 'Richtig.';
+    erg.className = 'ergebnis ok';
+  } else if(wert === 200){
+    erg.textContent = '200 ist die Gesamtzahl der geprüften Betriebsmittel, nicht die Anzahl, die in Ordnung war. Ziehe die 4 durchgefallenen noch ab.';
+    erg.className = 'ergebnis bad';
+  } else {
+    erg.textContent = 'Noch nicht richtig, prüfe deine Rechnung.';
+    erg.className = 'ergebnis bad';
+  }
 }
 </script>
 <!-- vt-speicher -->
