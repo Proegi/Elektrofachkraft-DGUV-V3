@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elektrofachkraft und Prüfpflichten</title>
+<style>
+:root{
+  --blau:#004993; --blau-2:#1D4E9E; --blau-hell:#D4EAFA; --orange:#F39100;
+  --ink:#202020; --ink-2:#545454; --ink-3:#8A8A8A; --line:#DADADA; --line-2:#E8E8E8;
+  --ok:#1E6B4F; --bad:#B32C22;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font-family:"Segoe UI",Arial,Helvetica,sans-serif;line-height:1.5}
+.wrap{max-width:900px;margin:0 auto;padding:24px 20px 60px}
+header.kopf{border-bottom:4px solid var(--blau);padding-bottom:12px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+header.kopf .lf{color:var(--blau);font-weight:600;font-size:.95rem}
+header.kopf h1{margin:2px 0 0;font-size:1.9rem;color:var(--ink)}
+button{font:inherit;cursor:pointer;border:none;border-radius:4px;padding:8px 16px;background:var(--blau);color:#fff;font-weight:600}
+button:hover{background:var(--blau-2)}
+button:focus-visible,select:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.hinweis{background:#FFF4E0;border-left:6px solid var(--orange);padding:12px 16px;margin-bottom:22px}
+.hinweis strong{display:block;margin-bottom:2px}
+.zitat{background:var(--blau-hell);border-left:6px solid var(--blau);padding:16px 20px;margin-bottom:26px}
+.zitat blockquote{margin:0 0 10px;font-size:1.15rem;font-style:italic}
+.zitat .quelle{font-size:.9rem;color:var(--ink-2)}
+section.aufgabe{border:1px solid var(--line);border-top:4px solid var(--blau);padding:18px 20px;margin:22px 0;border-radius:2px}
+section.aufgabe h2{margin:0 0 10px;color:var(--blau);font-size:1.3rem}
+.info{background:var(--blau-hell);padding:12px 16px;margin:12px 0}
+.klein{font-size:.88rem;color:var(--ink-2)}
+label{display:block;margin:12px 0 4px;font-weight:600}
+textarea{width:100%;min-height:70px;font:inherit;border:1px solid var(--line);padding:6px;resize:vertical}
+textarea.gross-feld{min-height:120px}
+table{border-collapse:collapse;width:100%;margin:10px 0}
+th,td{border:1px solid var(--line);padding:8px;vertical-align:top;text-align:left}
+th{background:var(--blau);color:#fff;font-weight:600}
+.tabwrap{overflow-x:auto}
+td.mitte{text-align:center;width:130px}
+input[type="checkbox"]{width:20px;height:20px}
+input[type="number"].zahl{width:110px;font:inherit;border:1px solid var(--line);padding:6px}
+.luecken-text{line-height:2.6}
+select.luecke{font:inherit;border:none;border-bottom:2px solid var(--blau);background:transparent;padding:2px 20px 2px 4px;text-align:center;color:var(--ink)}
+select.luecke:invalid{color:var(--ink-3)}
+.pruefen{display:flex;align-items:center;gap:14px;margin-top:12px;flex-wrap:wrap}
+.ergebnis{font-weight:600}
+.ergebnis.ok{color:var(--ok)} .ergebnis.bad{color:var(--bad)}
+@media print{
+  @page{margin:14mm}
+  body{font-size:10.5pt}
+  .wrap{max-width:none;padding:0}
+  .noprint,.hinweis,.pruefen{display:none!important}
+  section.aufgabe{break-inside:avoid-page;page-break-inside:avoid;margin:12px 0}
+  th{background:#fff!important;color:#000;border-bottom:2px solid #000}
+  .info{background:#fff;border:1px solid var(--line)}
+  .zitat{background:#fff;border:1px solid var(--line)}
+  textarea{border:none;border-bottom:1px solid #999;resize:none;min-height:60px;overflow:hidden}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="kopf">
+  <div>
+    <div class="lf">Fachkraft für Veranstaltungstechnik</div>
+    <h1>Elektrofachkraft und Prüfpflichten</h1>
+  </div>
+  <button class="noprint" onclick="window.print()">Drucken</button>
+</header>
+
+<div class="hinweis">
+  <strong>Hinweis:</strong> Deine Eingaben werden nur lokal in diesem Browser gespeichert. Sichere sie dir selbstständig, sonst können sie zum Beispiel beim Löschen der Browserdaten verloren gehen.
+</div>
+
+<div class="zitat">
+  <blockquote>„Als Elektrofachkraft im Sinne dieser Unfallverhütungsvorschrift gilt, wer aufgrund seiner fachlichen Ausbildung, Kenntnisse und Erfahrungen sowie Kenntnis der einschlägigen Bestimmungen die ihm übertragenen Arbeiten beurteilen und mögliche Gefahren erkennen kann."</blockquote>
+  <div class="quelle">Quelle: DGUV Vorschrift 3, § 2 Begriffe, Absatz 3</div>
+</div>
+
+<div class="info">
+  <strong>SQQ und SQP:</strong> Die igvw SQ Standards (Standards der Qualität) gliedern sich in Kategorien. SQP steht für Prozessstandards und beschreibt technische Abläufe und Anlagen, zum Beispiel SQP4 zu mobilen elektrischen Anlagen in der Veranstaltungstechnik. SQQ steht für Qualifikationsstandards und beschreibt die notwendige Kompetenz von Personen, zum Beispiel SQQ1 zur Elektrofachkraft für Veranstaltungstechnik.
+</div>
+
+<section class="aufgabe">
+  <h2>Aufgabe 1: Tätigkeiten und Abgrenzung</h2>
+  <p>Lies im Dokument igvw SQQ1 die Abschnitte 4 und 5. Schreibe in Stichpunkten auf, welche Tätigkeiten zur Elektrofachkraft für Veranstaltungstechnik gehören.</p>
+  <p class="klein">Quelle: FvT/Gesetze/SQQ1 Elektrofachkraft.pdf, Abschnitt 4 „Voraussetzungen für die Tätigkeit" und Abschnitt 5 „Aufgaben und Tätigkeiten"</p>
+  <label for="taetigkeiten-liste">Tätigkeiten der Elektrofachkraft für Veranstaltungstechnik</label>
+  <textarea id="taetigkeiten-liste" class="gross-feld"></textarea>
+  <div class="info">Recherchiere zusätzlich: Wo grenzt sich das Arbeitsgebiet der Elektrofachkraft für Veranstaltungstechnik von dem anderer Elektrofachkräfte ab, und an welcher Stelle beginnt ihre Zuständigkeit?</div>
+  <label for="abgrenzung">Abgrenzung und Beginn der Zuständigkeit</label>
+  <textarea id="abgrenzung" class="gross-feld"></textarea>
+</section>
+
+<section class="aufgabe">
+  <h2>Aufgabe 2: Was gehört zu Punkt 5?</h2>
+  <p>Die igvw SQQ1 beschreibt unter Punkt 5 die Aufgaben und Tätigkeiten der Elektrofachkraft für Veranstaltungstechnik. Kreuze an, welche der folgenden Tätigkeiten dort genannt werden.</p>
+  <div class="tabwrap">
+  <table id="taetigkeiten">
+    <thead><tr><th style="width:36px">Nr.</th><th>Tätigkeit</th><th class="mitte">gehört zu Punkt 5</th></tr></thead>
+    <tbody>
+      <tr data-loesung="ja"><td>1</td><td>Errichten, Betrieb und Außerbetriebnahme nicht stationärer elektrischer Anlagen der Veranstaltungstechnik</td><td class="mitte"><input type="checkbox" aria-label="Tätigkeit 1 gehört zu Punkt 5"></td></tr>
+      <tr data-loesung="nein"><td>2</td><td>Errichtung von Hausanschlüssen und Zählerschränken in Wohngebäuden</td><td class="mitte"><input type="checkbox" aria-label="Tätigkeit 2 gehört zu Punkt 5"></td></tr>
+      <tr data-loesung="ja"><td>3</td><td>Betrieb stationärer elektrischer Anlagen in Veranstaltungs- und Produktionsstätten für szenische Darstellung</td><td class="mitte"><input type="checkbox" aria-label="Tätigkeit 3 gehört zu Punkt 5"></td></tr>
+      <tr data-loesung="nein"><td>4</td><td>Planung und Errichtung ortsfester Starkstromanlagen über 1000 Volt</td><td class="mitte"><input type="checkbox" aria-label="Tätigkeit 4 gehört zu Punkt 5"></td></tr>
+      <tr data-loesung="ja"><td>5</td><td>Ausführung steckfertiger elektrischer Installationen für Dekorations- bzw. Ausstattungsteile und Bühnenbauten</td><td class="mitte"><input type="checkbox" aria-label="Tätigkeit 5 gehört zu Punkt 5"></td></tr>
+      <tr data-loesung="nein"><td>6</td><td>Prüfung von Blitzschutzanlagen an Gebäuden</td><td class="mitte"><input type="checkbox" aria-label="Tätigkeit 6 gehört zu Punkt 5"></td></tr>
+      <tr data-loesung="ja"><td>7</td><td>Ausführung elektrotechnischer Werkstatttätigkeiten</td><td class="mitte"><input type="checkbox" aria-label="Tätigkeit 7 gehört zu Punkt 5"></td></tr>
+      <tr data-loesung="nein"><td>8</td><td>Errichtung von Photovoltaikanlagen auf Wohngebäuden</td><td class="mitte"><input type="checkbox" aria-label="Tätigkeit 8 gehört zu Punkt 5"></td></tr>
+      <tr data-loesung="ja"><td>9</td><td>Festlegung der notwendigen Schutzmaßnahmen gegen elektrischen Schlag</td><td class="mitte"><input type="checkbox" aria-label="Tätigkeit 9 gehört zu Punkt 5"></td></tr>
+      <tr data-loesung="nein"><td>10</td><td>Instandhaltung von Aufzugsanlagen</td><td class="mitte"><input type="checkbox" aria-label="Tätigkeit 10 gehört zu Punkt 5"></td></tr>
+      <tr data-loesung="ja"><td>11</td><td>Prüfen und Messen, insbesondere der Schutzmaßnahmen</td><td class="mitte"><input type="checkbox" aria-label="Tätigkeit 11 gehört zu Punkt 5"></td></tr>
+      <tr data-loesung="nein"><td>12</td><td>Projektierung von Gebäudeleittechnik (KNX) in Neubauten</td><td class="mitte"><input type="checkbox" aria-label="Tätigkeit 12 gehört zu Punkt 5"></td></tr>
+      <tr data-loesung="ja"><td>13</td><td>Einhaltung der geltenden Anschlussbedingungen</td><td class="mitte"><input type="checkbox" aria-label="Tätigkeit 13 gehört zu Punkt 5"></td></tr>
+      <tr data-loesung="ja"><td>14</td><td>Anschluss im Spannungsbereich bis maximal AC 230/400 V unter Einhaltung aller Prüf- und Sicherheitskriterien</td><td class="mitte"><input type="checkbox" aria-label="Tätigkeit 14 gehört zu Punkt 5"></td></tr>
+      <tr data-loesung="ja"><td>15</td><td>Wartungs- und Instandsetzungsarbeiten an mobilen elektrischen Anlagen und ortsveränderlichen Betriebsmitteln der Veranstaltungstechnik</td><td class="mitte"><input type="checkbox" aria-label="Tätigkeit 15 gehört zu Punkt 5"></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="pruefen noprint">
+    <button onclick="pruefeTaetigkeiten()">Auswahl prüfen</button>
+    <span class="ergebnis" id="ergTaetigkeiten" aria-live="polite"></span>
+  </div>
+</section>
+
+<section class="aufgabe">
+  <h2>Aufgabe 3: Prüfpflicht und Ausnahmen</h2>
+  <p>Lies § 5 Absatz 1 und Absatz 4 der DGUV Vorschrift 3.</p>
+  <p class="klein">Quelle: FvT/Gesetze/Dguv3.pdf, § 5 Prüfungen</p>
+  <label for="pruefpflicht">Wann muss laut Absatz 1 geprüft werden?</label>
+  <textarea id="pruefpflicht" class="gross-feld"></textarea>
+  <div class="info">Fallfrage: Ein neu gekaufter Scheinwerfer soll zum ersten Mal eingesetzt werden. Muss er vorher geprüft werden? Begründe deine Antwort mit § 5.</div>
+  <label for="scheinwerfer-fall">Deine Antwort mit Begründung</label>
+  <textarea id="scheinwerfer-fall" class="gross-feld"></textarea>
+</section>
+
+<section class="aufgabe">
+  <h2>Aufgabe 4: Prüffristen ortsveränderlicher Betriebsmittel</h2>
+  <p>Schau dir in der DGUV Vorschrift 3 die Tabelle 1B „Wiederholungsprüfungen ortsveränderlicher elektrischer Betriebsmittel" an und ergänze den Lückentext.</p>
+  <p class="klein">Quelle: FvT/Gesetze/Dguv3.pdf, § 5 Prüfungen, Tabelle 1B</p>
+  <p class="luecken-text" id="luecken4">
+    Ortsveränderliche elektrische Betriebsmittel müssen von einer
+    <select class="luecke" data-loesung="Elektrofachkraft" aria-label="Wer darf grundsätzlich prüfen">
+      <option value=""></option>
+      <option>Sachkundiger</option>
+      <option>Elektrofachkraft für festgelegte Tätigkeiten</option>
+      <option>Fachkraft für Arbeitssicherheit</option>
+      <option>befähigte Person</option>
+      <option>Elektrofachkraft</option>
+      <option>Sicherheitsbeauftragter</option>
+      <option>elektrotechnisch unterwiesene Person</option>
+      <option>jede unterwiesene Person</option>
+    </select>
+    geprüft werden. Werden dabei geeignete Mess- und Prüfgeräte verwendet, darf auch eine
+    <select class="luecke" data-loesung="elektrotechnisch unterwiesene Person" aria-label="Wer darf zusätzlich mit geeigneten Geräten prüfen">
+      <option value=""></option>
+      <option>befähigte Person</option>
+      <option>Sicherheitsbeauftragter</option>
+      <option>elektrotechnisch unterwiesene Person</option>
+      <option>Elektrofachkraft für festgelegte Tätigkeiten</option>
+      <option>Sachkundiger</option>
+      <option>Elektrofachkraft</option>
+      <option>jede unterwiesene Person</option>
+      <option>Fachkraft für Arbeitssicherheit</option>
+    </select>
+    prüfen. Der Richtwert für die Prüffrist beträgt
+    <select class="luecke" data-loesung="6" aria-label="Prüffrist Richtwert in Monaten">
+      <option value=""></option>
+      <option>12</option>
+      <option>3</option>
+      <option>24</option>
+      <option>6</option>
+      <option>1</option>
+      <option>48</option>
+      <option>9</option>
+    </select>
+    Monate, auf Baustellen verkürzt sich die Frist auf
+    <select class="luecke" data-loesung="3" aria-label="Prüffrist auf Baustellen in Monaten">
+      <option value=""></option>
+      <option>6</option>
+      <option>1</option>
+      <option>9</option>
+      <option>3</option>
+      <option>24</option>
+      <option>12</option>
+      <option>48</option>
+    </select>
+    Monate. Wird dabei eine Fehlerquote von höchstens
+    <select class="luecke" data-loesung="2" aria-label="Fehlerquote in Prozent">
+      <option value=""></option>
+      <option>5</option>
+      <option>1</option>
+      <option>10</option>
+      <option>2</option>
+      <option>0,5</option>
+      <option>3</option>
+      <option>1,5</option>
+    </select>
+    Prozent erreicht, kann die Prüffrist verlängert werden. Als Maximalwert gilt dann auf Baustellen, in Fertigungsstätten und Werkstätten
+    <select class="luecke" data-loesung="ein Jahr" aria-label="Maximalwert Baustellen, Fertigungsstätten und Werkstätten">
+      <option value=""></option>
+      <option>drei Jahre</option>
+      <option>sechs Monate</option>
+      <option>zwei Jahre</option>
+      <option>ein Jahr</option>
+      <option>vier Jahre</option>
+      <option>anderthalb Jahre</option>
+    </select>
+    , in Büros oder unter ähnlichen Bedingungen
+    <select class="luecke" data-loesung="zwei Jahre" aria-label="Maximalwert Büros">
+      <option value=""></option>
+      <option>anderthalb Jahre</option>
+      <option>vier Jahre</option>
+      <option>ein Jahr</option>
+      <option>zwei Jahre</option>
+      <option>sechs Monate</option>
+      <option>drei Jahre</option>
+    </select>
+    .
+  </p>
+  <div class="pruefen noprint">
+    <button onclick="pruefeLueckentext()">Lückentext prüfen</button>
+    <span class="ergebnis" id="ergLuecken4" aria-live="polite"></span>
+  </div>
+  <div class="info">Recherchiere zusätzlich, was mit der Fehlerquote genau gemeint ist. Die Definition findest du direkt im Dokument DGUV Vorschrift 3, im Abschnitt vor Tabelle 1B.</div>
+  <label for="fehlerquote">Was ist die Fehlerquote?</label>
+  <textarea id="fehlerquote" class="gross-feld"></textarea>
+
+  <div class="info">Verständnischeck: Bei einer Prüfung sind 4 Betriebsmittel durchgefallen. Wie viele Betriebsmittel müssen mindestens in Ordnung gewesen sein, damit die Fehlerquote noch höchstens 2 Prozent beträgt und die Prüffrist verlängert werden kann?</div>
+  <label for="fehlerquote-a">Mindestanzahl an Betriebsmitteln, die in Ordnung sein mussten</label>
+  <input type="number" id="fehlerquote-a" class="zahl" aria-label="Mindestanzahl an Betriebsmitteln, die in Ordnung sein mussten">
+
+  <div class="info">Umgekehrt: Ihr habt 100 Betriebsmittel geprüft. Wie viele davon dürfen höchstens durchgefallen sein, damit die Fehlerquote noch höchstens 2 Prozent beträgt?</div>
+  <label for="fehlerquote-b">Maximale Anzahl durchgefallener Betriebsmittel bei 100 geprüften Betriebsmitteln</label>
+  <input type="number" id="fehlerquote-b" class="zahl" aria-label="Maximale Anzahl durchgefallener Betriebsmittel bei 100 geprüften Betriebsmitteln">
+
+  <div class="pruefen noprint">
+    <button onclick="pruefeFehlerquote()">Verständnischeck prüfen</button>
+    <span class="ergebnis" id="ergFehlerquote" aria-live="polite"></span>
+  </div>
+</section>
+
+</div>
+
+<script>
+function pruefeTaetigkeiten(){
+  const zeilen = Array.from(document.querySelectorAll('#taetigkeiten tbody tr'));
+  const zutreffend = zeilen.filter(function(el){ return el.dataset.loesung === 'ja'; });
+  let richtigErkannt = 0, falschAngekreuzt = 0;
+  zeilen.forEach(function(el){
+    const cb = el.querySelector('input[type="checkbox"]');
+    const soll = el.dataset.loesung === 'ja';
+    if(cb.checked && soll){ richtigErkannt++; }
+    if(cb.checked && !soll){ falschAngekreuzt++; }
+  });
+  const erg = document.getElementById('ergTaetigkeiten');
+  erg.textContent = richtigErkannt + ' von ' + zutreffend.length + ' zutreffenden Tätigkeiten erkannt, ' + falschAngekreuzt + ' nicht zutreffende angekreuzt.';
+  erg.className = 'ergebnis ' + (richtigErkannt === zutreffend.length && falschAngekreuzt === 0 ? 'ok' : 'bad');
+}
+function pruefeLueckentext(){
+  const auswahl = Array.from(document.querySelectorAll('#luecken4 select'));
+  let richtig = 0, leer = 0;
+  auswahl.forEach(function(sel){
+    if(!sel.value){ leer++; return; }
+    if(sel.value === sel.dataset.loesung){ richtig++; }
+  });
+  const erg = document.getElementById('ergLuecken4');
+  if(leer > 0){
+    erg.textContent = 'Noch nicht ausgefüllt: ' + leer;
+    erg.className = 'ergebnis bad';
+    return;
+  }
+  erg.textContent = richtig + ' von ' + auswahl.length + ' richtig.';
+  erg.className = 'ergebnis ' + (richtig === auswahl.length ? 'ok' : 'bad');
+}
+function pruefeFehlerquote(){
+  const erg = document.getElementById('ergFehlerquote');
+  const aFeld = document.getElementById('fehlerquote-a');
+  const bFeld = document.getElementById('fehlerquote-b');
+  if(aFeld.value === '' || bFeld.value === ''){
+    erg.textContent = 'Bitte beide Felder ausfüllen.';
+    erg.className = 'ergebnis bad';
+    return;
+  }
+  const richtig = Number(aFeld.value) === 196 && Number(bFeld.value) === 2;
+  erg.textContent = richtig ? 'Beide Werte richtig.' : 'Noch nicht richtig, prüfe deine Rechnung.';
+  erg.className = 'ergebnis ' + (richtig ? 'ok' : 'bad');
+}
+</script>
+<!-- vt-speicher -->
+<style>
+.vt-tools{max-width:960px;margin:8px auto 40px;padding:0 18px}
+.vt-tools button{font:inherit;font-size:.95em;padding:8px 18px;border:1.5px solid currentColor;background:transparent;color:inherit;cursor:pointer}
+.vt-tools button:hover{background:rgba(128,128,128,.16)}
+@media print{.vt-tools{display:none}}
+</style>
+<div class="vt-tools"><button type="button" id="vt-wipe">Alle Eingaben löschen</button></div>
+<script>
+(function(){
+  var PREFIX = 'vt-elektrofachkraft:';
+  var EXCLUDE = '';
+  var TOGGLES = '';
+  var WIPE_ID = '';
+  var store = null;
+  try { store = window.localStorage; store.setItem(PREFIX + '__t', '1'); store.removeItem(PREFIX + '__t'); }
+  catch (e) { store = null; }
+  if (!store) { return; }
+
+  /* Felder bei jedem Zugriff frisch einsammeln, weil Blaetter Teile neu aufbauen koennen */
+  function collect(){
+    var out = [];
+    var idx = 0;
+    Array.prototype.forEach.call(document.querySelectorAll('input, textarea, select, [contenteditable="true"]'), function(el){
+      var t = (el.type || '').toLowerCase();
+      if (el.tagName === 'INPUT' && /^(button|submit|reset|password|file|hidden|image)$/.test(t)) { return; }
+      if (EXCLUDE && el.matches(EXCLUDE)) { return; }
+      if (el.closest('.vt-tools')) { return; }
+      var key = el.id ? 'id:' + el.id : 'n' + idx;
+      idx++;
+      out.push({ el: el, key: PREFIX + key, kind: (t === 'checkbox' || t === 'radio') ? 'check' : (el.isContentEditable ? 'rich' : 'value') });
+    });
+    return out;
+  }
+  function collectToggles(){
+    return TOGGLES ? Array.prototype.map.call(document.querySelectorAll(TOGGLES), function(el, i){
+      return { el: el, key: PREFIX + 'tg' + i };
+    }) : [];
+  }
+
+  function read(f){
+    if (f.kind === 'check') { return f.el.checked ? '1' : ''; }
+    if (f.kind === 'rich') { return f.el.textContent; }
+    return f.el.value;
+  }
+  function fire(el, type){
+    el.dispatchEvent(new Event(type, { bubbles: true }));
+  }
+
+  collect().forEach(function(f){
+    var saved = null;
+    try { saved = store.getItem(f.key); } catch (e) {}
+    if (saved === null) { return; }
+    if (f.kind === 'check') { f.el.checked = (saved === '1'); fire(f.el, 'change'); }
+    else if (f.kind === 'rich') { f.el.textContent = saved; fire(f.el, 'input'); }
+    else {
+      f.el.value = saved;
+      fire(f.el, f.el.tagName === 'SELECT' ? 'change' : 'input');
+    }
+  });
+  collectToggles().forEach(function(t){
+    var saved = null;
+    try { saved = store.getItem(t.key); } catch (e) {}
+    if (saved !== null && t.el.getAttribute('aria-pressed') !== saved) { t.el.click(); }
+  });
+
+  var wiping = false;
+  var timer = null;
+  function save(){
+    if (wiping) { return; }
+    collect().forEach(function(f){
+      var val = read(f);
+      try {
+        if (val && String(val).trim()) { store.setItem(f.key, val); } else { store.removeItem(f.key); }
+      } catch (e) {}
+    });
+    collectToggles().forEach(function(t){
+      try {
+        if (t.el.getAttribute('aria-pressed') === 'true') { store.setItem(t.key, 'true'); } else { store.removeItem(t.key); }
+      } catch (e) {}
+    });
+  }
+  function queue(){
+    if (timer) { clearTimeout(timer); }
+    timer = setTimeout(save, 400);
+  }
+  document.addEventListener('input', queue, true);
+  document.addEventListener('change', queue, true);
+  if (TOGGLES) { document.addEventListener('click', queue, true); }
+  window.addEventListener('pagehide', save);
+  document.addEventListener('visibilitychange', function(){ if (document.visibilityState === 'hidden') { save(); } });
+
+  function dropAll(){
+    for (var i = store.length - 1; i >= 0; i--) {
+      var k = store.key(i);
+      if (k && k.indexOf(PREFIX) === 0) { try { store.removeItem(k); } catch (e) {} }
+    }
+  }
+
+  if (WIPE_ID) {
+    /* vorhandener Zuruecksetzen-Button: nach seinem Handler den Speicher angleichen */
+    var own = document.getElementById(WIPE_ID);
+    if (own) { own.addEventListener('click', function(){ if (timer) { clearTimeout(timer); } save(); }); }
+    return;
+  }
+  var wipe = document.getElementById('vt-wipe');
+  if (wipe) {
+    wipe.addEventListener('click', function(){
+      if (!window.confirm('Wirklich alle Eingaben auf diesem Blatt löschen?')) { return; }
+      wiping = true;
+      if (timer) { clearTimeout(timer); }
+      dropAll();
+      /* Felder leeren, sonst stellt Firefox sie beim Neuladen wieder her */
+      collect().forEach(function(f){
+        try {
+          if (f.kind === 'check') { f.el.checked = false; }
+          else if (f.kind === 'rich') { f.el.textContent = ''; }
+          else if (f.el.tagName === 'SELECT') { f.el.selectedIndex = 0; }
+          else { f.el.value = ''; }
+        } catch (e) {}
+      });
+      window.location.reload();
+    });
+  }
+})();
+</script>
+</body>
+</html>
